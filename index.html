@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word counter application</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900" data-aos="fade-down">
+
+    <!-- Header Section -->
+    <header class="bg-blue-600 text-white p-6 text-center">
+        <h1 class="text-3xl font-bold" data-aos="fade-right">Selamat Datang di Word Counter Application</h1>
+        <p class="text-lg mt-2" data-aos="fade-left">Sebuah Projek Sederhana Untuk Menghitung Kata dan Karakter</p>
+    </header>
+
+    <!-- Content Section -->
+    <main class="container mx-auto p-6 mt-6 bg-white shadow-md rounded-lg">
+        <section class="text-center" >
+            <div class="bg-teal-400 text-white rounded-md p-3">
+                <h2 class="text-2xl font-semibold mb-4" data-aos="flip-up">silahkan masukkan kata dan karakter yang ingin dihitung</h2>
+
+                <h3 class="text-2xl font-semibold mb-6" data-aos="fade-down-left">pada kotak dibawah ini</h3>    
+            </div>
+            
+
+            <div class="container mx-auto p-6">
+                <textarea id="textArea" onkeyup="updateCounters()" cols="40" rows="10" class="border border-lime-600 p-2 w-full mb-3" placeholder="ketik disini"></textarea>
+                <p>Panjang: <span id="charCounter">0</span> Karakter</p>
+                <p>Jumlah Kata: <span id="wordCounter">0</span> Kata</p>
+            </div> 
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+        <p>&copy; 2024 Isroq. All rights reserved.</p>
+    </footer>
+    <script>
+
+
+        function updateCounters() {
+            const text = document.getElementById('textArea').value;
+            const charCount = text.length;
+            const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
+            document.getElementById('charCounter').innerText = charCount;
+            document.getElementById('wordCounter').innerText = wordCount;
+        }
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
